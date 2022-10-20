@@ -11,9 +11,8 @@ struct Node {
 
 enum Link {
     Nil,
-    Some(Box<Node>),
+    Som(Box<Node>),
 }
-
 
 impl List {
     pub fn new() -> Self {
@@ -21,10 +20,13 @@ impl List {
     }
 
     pub fn push(&mut self, item: usize) {
-        self.head = Link::Some( 
-            Box::new( Node {
-                item,
-                next: mem::replace(&mut self.head, Link::Nil),
+        self.head = Link::Som(Box::new(Node {
+            item,
+            next: mem::replace(&mut self.head, Link::Nil),
         }))
+    }
+
+    pub fn pop(&mut self) -> Option<usize> {
+        unimplemented!()
     }
 }
