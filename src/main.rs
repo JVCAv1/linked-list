@@ -1,5 +1,4 @@
-mod lib;
-use lib::List;
+use linked_list::List;
 use rand::{thread_rng, Rng};
 
 fn main() {
