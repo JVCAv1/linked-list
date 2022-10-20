@@ -36,9 +36,9 @@ impl List {
     pub fn pop(&mut self) -> Option<usize> {
         match replace(&mut self.head, Link::Nil) {
             Link::Nil => None,
-            Link::Som(Node) => {
-                self.head = Node.next;
-                Some(Node.item)
+            Link::Som(node) => {
+                self.head = node.next;
+                Some(node.item)
             }
         }
     }
