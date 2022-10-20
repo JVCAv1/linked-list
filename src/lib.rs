@@ -28,8 +28,11 @@ impl List {
 
     pub fn pop(&mut self) -> Option<usize> {
         match replace(&mut self.head, Link::Nil){
-            //TODO
-        };
-        unimplemented!()
+            Link::Nil => None,
+            Link::Som(Node) => {
+                self.head = Node.next;
+                Some(Node.item)
+            },
+        }
     }
 }
