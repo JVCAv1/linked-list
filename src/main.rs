@@ -7,5 +7,8 @@ fn main() {
     for _ in 1..=10 {
         linked.push(thread_rng().gen_range(1..=100));
     }
-    println!("{}", linked);
+    println!("Complete list: {}", linked);
+    for _ in 1..=10 {
+        println!("Popped: {}", linked.pop().unwrap());
+    }
 }
