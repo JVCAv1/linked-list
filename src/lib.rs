@@ -1,3 +1,4 @@
+use core::fmt;
 use std::mem::replace;
 
 pub struct List {
@@ -34,5 +35,16 @@ impl List {
                 Some(Node.item)
             },
         }
+    }
+}
+
+impl fmt::Display for List {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let mut current = &self.head;
+        while let Link::Som(node) = current {
+            write!(f, "{} -> ", node.item)?;
+            current = &node.next;
+        }
+        write!(f, "Nil")
     }
 }
