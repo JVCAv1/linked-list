@@ -15,6 +15,12 @@ enum Link {
     Som(Box<Node>),
 }
 
+impl Default for List {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl List {
     pub fn new() -> Self {
         List { head: Link::Nil }
@@ -28,12 +34,12 @@ impl List {
     }
 
     pub fn pop(&mut self) -> Option<usize> {
-        match replace(&mut self.head, Link::Nil){
+        match replace(&mut self.head, Link::Nil) {
             Link::Nil => None,
             Link::Som(Node) => {
                 self.head = Node.next;
                 Some(Node.item)
-            },
+            }
         }
     }
 }
