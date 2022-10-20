@@ -1,4 +1,4 @@
-use std::mem;
+use std::mem::replace;
 
 pub struct List {
     head: Link,
@@ -22,11 +22,14 @@ impl List {
     pub fn push(&mut self, item: usize) {
         self.head = Link::Som(Box::new(Node {
             item,
-            next: mem::replace(&mut self.head, Link::Nil),
+            next: replace(&mut self.head, Link::Nil),
         }))
     }
 
     pub fn pop(&mut self) -> Option<usize> {
+        match replace(&mut self.head, Link::Nil){
+            //TODO
+        };
         unimplemented!()
     }
 }
