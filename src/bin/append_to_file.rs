@@ -15,7 +15,7 @@ fn main() {
     for _ in 1..=10 {
         linked.push(thread_rng().gen_range(1..=100));
     }
-	for _ in 1..=10 {
-		writeln!(file, "{}", linked.pop().unwrap()).expect("Write Error!");
-	}
+
+	writeln!(file, "{}", linked).expect("Write Error!");
+
 }
